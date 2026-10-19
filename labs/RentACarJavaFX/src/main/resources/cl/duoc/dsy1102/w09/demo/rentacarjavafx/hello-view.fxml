@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="12"
+      xmlns="http://javafx.com/javafx/21"
+      fx:controller="cl.duoc.dsy1102.w09.demo.rentacarjavafx.HelloController"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+    <Label text="Registro de vehículo disponible"/>
+    <TextField fx:id="patenteField" promptText="Patente del vehículo"/>
+    <TextField fx:id="marcaField" promptText="Marca del vehículo"/>
+    <Button text="Registrar" onAction="#registrar"/>
+    <Button text="Limpiar" onAction="#limpiar"/>
+    <Label fx:id="resultadoLabel" text="Completa el formulario"/>
+</VBox>
