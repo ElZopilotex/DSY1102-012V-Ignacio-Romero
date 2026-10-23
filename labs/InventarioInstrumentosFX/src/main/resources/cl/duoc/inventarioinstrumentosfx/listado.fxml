@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="cl.duoc.inventarioinstrumentosfx.controller.ListadoController"
+      prefWidth="640" prefHeight="420" spacing="12">
+    <children>
+        <Label text="Inventario de instrumentos"/>
+        <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="140"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="280"/>
+                <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="200"/>
+            </columns>
+        </TableView>
+        <Button text="Nuevo instrumento" onAction="#irFormulario"/>
+    </children>
+</VBox>

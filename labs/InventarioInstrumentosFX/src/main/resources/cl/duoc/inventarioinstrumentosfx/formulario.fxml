@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="cl.duoc.inventarioinstrumentosfx.controller.FormularioController"
+      prefWidth="400" prefHeight="300" spacing="10">
+    <children>
+        <Label text="Nuevo Instrumento"/>
+        <TextField fx:id="codigo" promptText="Código"/>
+        <TextField fx:id="nombre" promptText="Nombre"/>
+        <ComboBox fx:id="categoria" promptText="Categoría"/>
+        <Label fx:id="mensaje"/>
+        <Button text="Guardar" onAction="#guardar"/>
+        <Button text="Volver" onAction="#volver"/>
+    </children>
+</VBox>
