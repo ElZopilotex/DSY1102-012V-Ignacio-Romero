@@ -1,5 +1,9 @@
 [ {
   "codigo" : "G01",
-  "nombre" : "Guitarra Eléctrica",
+  "nombre" : "Guitarra eléctrica",
   "categoria" : "Guitarra"
+}, {
+  "codigo" : "B01",
+  "nombre" : "Bajo eléctrico",
+  "categoria" : "Bajo"
 } ]
