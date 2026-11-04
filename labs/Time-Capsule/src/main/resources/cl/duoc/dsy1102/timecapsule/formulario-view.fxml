@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cl.duoc.dsy1102.timecapsule.FormularioController"
+      spacing="14"
+      style="-fx-padding: 20;">
+
+    <Label text="Nuevo mensaje para el futuro" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <Label text="¿Qué te gustaría recordar?" />
+    <TextField fx:id="campoAutor" promptText="Tu nombre" />
+    <TextField fx:id="campoTexto" promptText="Escribe tu mensaje" />
+
+    <Label text="¿Dentro de cuántos años?" />
+    <ComboBox fx:id="campoPlazo" promptText="Seleccionar plazo" />
+
+    <Label fx:id="estadoRegistro" style="-fx-text-fill: #ef4444;" />
+
+    <HBox spacing="10">
+        <Button text="Guardar mensaje" onAction="#guardarMensaje" />
+        <Button text="Cancelar / Volver" onAction="#volver" />
+    </HBox>
+
+</VBox>
