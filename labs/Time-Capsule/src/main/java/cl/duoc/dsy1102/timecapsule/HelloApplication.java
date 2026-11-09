@@ -1,62 +1,67 @@
 package cl.duoc.dsy1102.timecapsule;
 
+import cl.duoc.dsy1102.timecapsule.dao.JsonMensajeDao;
+import cl.duoc.dsy1102.timecapsule.dao.MensajeDao;
 import cl.duoc.dsy1102.timecapsule.model.MensajeFuturo;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HelloApplication extends Application {
 
-    private Stage stage;
-    private final ObservableList<MensajeFuturo> mensajes = FXCollections.observableArrayList();
-
-    public ObservableList<MensajeFuturo> getMensajes() {
-        return mensajes;
-    }
+    private Stage primaryStage;
+    private final MensajeDao mensajeDao = new JsonMensajeDao(Path.of("data", "mensajes.json"));
+    private List<MensajeFuturo> mensajes = new ArrayList<>();
 
     @Override
     public void start(Stage stage) throws IOException {
-        this.stage = stage;
+        this.primaryStage = stage;
 
-        // Datos de prueba iniciales
-        if (mensajes.isEmpty()) {
-            mensajes.add(new MensajeFuturo("Valentina", "Nunca dejes de perseguir tus sueños.", 5));
-            mensajes.add(new MensajeFuturo("Carlos", "Recuerda de dónde comenzaste.", 10));
+        try {
+            this.mensajes = new ArrayList<>(mensajeDao.listar());
+        } catch (IOException e) {
+            this.mensajes = new ArrayList<>();
         }
 
-        stage.setTitle("Cápsula del Tiempo FX");
         mostrarListado();
-        stage.show();
     }
 
     public void mostrarListado() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        Parent root = loader.load();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
-        HelloController controller = loader.getController();
+        HelloController controller = fxmlLoader.getController();
         controller.configurar(this);
 
-        Scene scene = new Scene(root, 750, 480);
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        stage.setScene(scene);
+        primaryStage.setTitle("Cápsula del Tiempo FX");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public void mostrarFormulario() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("formulario-view.fxml"));
-        Parent root = loader.load();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("formulario-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
-        FormularioController controller = loader.getController();
+        FormularioController controller = fxmlLoader.getController();
         controller.configurar(this);
 
-        Scene scene = new Scene(root, 750, 480);
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        stage.setScene(scene);
+        primaryStage.setTitle("Nuevo Mensaje - Cápsula del Tiempo FX");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public List<MensajeFuturo> getMensajes() {
+        return mensajes;
+    }
+
+    public MensajeDao getMensajeDao() {
+        return mensajeDao;
     }
 
     public static void main(String[] args) {

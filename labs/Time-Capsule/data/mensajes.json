@@ -1,0 +1,9 @@
+[ {
+  "autor" : "paolo",
+  "texto" : "The game",
+  "plazoAnios" : 5
+}, {
+  "autor" : "juanito",
+  "texto" : "mensaje 2",
+  "plazoAnios" : 20
+} ]

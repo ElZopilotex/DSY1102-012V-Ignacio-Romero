@@ -36,7 +36,10 @@ public class FormularioController {
             return;
         }
 
-        app.getMensajes().add(new MensajeFuturo(autor, texto, campoPlazo.getValue()));
+        MensajeFuturo nuevoMensaje = new MensajeFuturo(autor, texto, campoPlazo.getValue());
+        app.getMensajes().add(nuevoMensaje);
+        app.getMensajeDao().guardar(app.getMensajes());
+
         app.mostrarListado();
     }
 

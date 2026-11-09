@@ -2,6 +2,7 @@ package cl.duoc.dsy1102.timecapsule;
 
 import cl.duoc.dsy1102.timecapsule.model.MensajeFuturo;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,7 +20,7 @@ public class HelloController {
 
     public void configurar(HelloApplication app) {
         this.app = app;
-        tablaMensajes.setItems(app.getMensajes());
+        tablaMensajes.setItems(FXCollections.observableArrayList(app.getMensajes()));
     }
 
     @FXML
