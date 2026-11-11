@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox spacing="20" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cl.duoc.dsy1102.capsula_estacion_sur.HelloController">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Lado izquierdo: Formulario de Registro -->
+    <VBox spacing="12" prefWidth="320">
+        <Label text="Registro de Actividades" style="-fx-font-weight: bold; -fx-font-size: 16;"/>
+
+        <Label text="Modalidad del Taller:"/>
+        <ComboBox fx:id="cmbModalidad" prefWidth="300" promptText="Seleccione una opción..."/>
+
+        <!-- Campos comunes del modelo base -->
+        <TextField fx:id="txtCodigo" promptText="Código (ej: T01)"/>
+        <TextField fx:id="txtNombre" promptText="Nombre del Taller"/>
+        <TextField fx:id="txtDuracion" promptText="Duración (Horas)"/>
+        <TextField fx:id="txtCupos" promptText="Cantidad de cupos"/>
+
+        <!-- Contenedor para campos específicos Presencial -->
+        <VBox fx:id="vboxPresencial" spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-background-radius: 5;">
+            <Label text="Datos Presenciales:" style="-fx-font-size: 11; -fx-text-fill: gray;"/>
+            <TextField fx:id="txtPresencial1" promptText="Lugar / Sala"/>
+            <TextField fx:id="txtPresencial2" promptText="Recargo extra ($)"/>
+        </VBox>
+
+        <!-- Contenedor para campos específicos Virtual -->
+        <VBox fx:id="vboxVirtual" spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-background-radius: 5;">
+            <Label text="Datos Virtuales:" style="-fx-font-size: 11; -fx-text-fill: gray;"/>
+            <TextField fx:id="txtVirtual1" promptText="Plataforma (Zoom/Teams)"/>
+            <TextField fx:id="txtVirtual2" promptText="Costo de licencia ($)"/>
+        </VBox>
+
+        <!-- Botones y Mensajes -->
+        <HBox spacing="10">
+            <Button fx:id="btnRegistrar" text="Registrar" defaultButton="true" prefWidth="145"/>
+            <Button fx:id="btnEliminar" text="Eliminar" prefWidth="145"/>
+        </HBox>
+
+        <Label fx:id="lblMensaje" text="Esperando acción..." textFill="#0066cc" wrapText="true"/>
+    </VBox>
+
+    <!-- Lado derecho: Tabla de datos -->
+    <VBox spacing="10" HBox.hgrow="ALWAYS">
+        <Label text="Talleres Disponibles" style="-fx-font-weight: bold; -fx-font-size: 16;"/>
+        <TableView fx:id="tablaTalleres" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="70"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                <TableColumn fx:id="colModalidad" text="Modalidad" prefWidth="100"/>
+                <TableColumn fx:id="colArancel" text="Arancel Total ($)" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>
