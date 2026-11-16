@@ -1,0 +1,22 @@
+[
+  {
+    "suspensiones": 2,
+    "codigo": "4500",
+    "anioFabricacion": 2001,
+    "peso": 2.0
+  },
+  {
+    "suspensiones": 2,
+    "codigo": "123",
+    "anioFabricacion": 2020,
+    "peso": 6.0
+  },
+  {
+    "autonomiaKm": 12,
+    "bateriaCertificada": true,
+    "garantiaExtendida": false,
+    "codigo": "5000",
+    "anioFabricacion": 2026,
+    "peso": 5.0
+  }
+]
